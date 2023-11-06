@@ -29,9 +29,33 @@ b:8
 c:16
 The roots are -4.0 and -4.0
 """
-import os
+import os, math
 os.system('cls')
 
+def start():
+  print("Enter in the coefficients for a quadratic equation in the format:\n  ax^2 + bx + c = 0")
+  while True:
+    a = input("a: ")
+    b = input("b: ")
+    c = input("c: ")
+    try:
+      a = int(a)
+      b = int(b)
+      c = int(c)
+      break
+    except:
+      print("Those are not valid values for a, b or c")
+  return a, b, c
 
-print("Enter in the coefficients for a quadratic equation in the format:")
-print("  ax^2 + bx + c = 0")
+def quadratic(a,b,c):
+  try:
+    x1 = (-b + math.sqrt((b ** 2) - 4 * a * c)) / (2 * a)
+    x2 = (-b - math.sqrt((b ** 2) - 4 * a * c)) / (2 * a)
+    print(f"The roots are {round(x1,2)} and {round(x2,2)}")
+  except:
+    print("There are no real roots to the equation")
+
+if __name__ == "__main__":
+  while True:
+    a, b, c = start()
+    quadratic(a, b, c)

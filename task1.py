@@ -8,6 +8,12 @@
 # block so that the user will keep entering in a number
 # until they have entered a value integer value
 
-number = input("Please enter in an integer value")
-number = int(number)
+while True:
+    number = input("Please enter in an integer value: ")
+    try:
+        number = int(number)
+        break
+    except:
+        print("invalade entry")
+
 print(number)
